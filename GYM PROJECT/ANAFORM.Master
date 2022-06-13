@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ANAFORM.master.cs" Inherits="GYM_PROJECT.ANAFORM" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="nav-fill" style="font-size: 20px; font-family: 'Arial Black'; height: 50px; color: #FF0000; background-image: url('/IMAGES/ALI.jpg'); background-size: cover;">
+            <div class="row" style="text-align: center; font-size: 35px; color: #FF0000;">
+            <div class="col"><a href="WebForm1.aspx" style="text-decoration: none; color: #FF0000;">HOMEPAGE</a>&nbsp;&nbsp; 
+                <a href="WebForm2.aspx" style="text-decoration: none; color: #FF0000;">COURSES</a>&nbsp; 
+                <a href="WebForm3.aspx" style="text-decoration: none; color: #FF0000;">TRANIERS</a>
+                <a href="WebForm4.aspx" style="text-decoration: none; color: #FF0000;">ABOUT</a>&nbsp;
+                 <a href="WebForm5.aspx" style="text-decoration: none; color: #FF0000;">REGISTRATION</a>&nbsp;
+                <a href="WebForm6.aspx" style="text-decoration: none; color: #FF0000;">LOGIN</a>
+            </div>
+        </div>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
+
