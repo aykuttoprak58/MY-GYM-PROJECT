@@ -94,6 +94,9 @@ namespace GYM_PROJECT
         {
             try
             {
+                 
+
+
                 string gender = "";
 
                 if (RadioButton1.Checked == true)
@@ -106,8 +109,14 @@ namespace GYM_PROJECT
                     gender = "FEMALE";
                 }
 
-
-
+                if (DropDownList1.SelectedIndex == 0 || DropDownList2.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0 || DropDownList4.SelectedIndex == 0 )
+                {
+                    DropDownList1.SelectedIndex = 1;
+                    DropDownList2.SelectedIndex = 1;
+                    DropDownList3.SelectedIndex = 1;
+                    DropDownList4.SelectedIndex = 1;
+                }
+           
 
                 string Register = "INSERT INTO Register (Name,Surname,Age,Gender,Height,Weight,Email,Phone,SalonId,CourseId,TranierId,TimeId) VALUES (@Name,@Surname,@Age,@Gender,@Height,@Weight,@Email,@Phone,@SalonId,@CourseId,@TranierId,@TimeId)";
                 SqlCommand Komando2 = new SqlCommand(Register, Bridge);
