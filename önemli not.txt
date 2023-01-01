@@ -1,0 +1,1 @@
+webconfig içersindeki datasource kısmına kendi server name'nizi yazınız.
