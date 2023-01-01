@@ -5,11 +5,7 @@ CREATE DATABASE [SALON]
 GO
 USE [SALON]
 GO
-/****** Object:  Table [dbo].[Course]    Script Date: 01/01/2023 20:56:42 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE TABLE [dbo].[Course](
 	[CourseId] [int] IDENTITY(1,1) NOT NULL,
 	[CourseName] [nvarchar](15) NOT NULL,
