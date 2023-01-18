@@ -29,6 +29,10 @@
             color: red;
         }
         
+        .auto-style6 {
+            margin-right: 0;
+        }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -49,13 +53,16 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5" colspan="2">
-                    <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
+                <td class="auto-style5">
+                    <asp:Button ID="Button1" runat="server" BackColor="Red" ForeColor="White" Height="71px" Text="LOGIN" Width="172px" Font-Size="20pt" OnClick="Button1_Click" />
+                </td>
+                <td class="auto-style5">
+                    <asp:Button ID="Button2" runat="server" BackColor="#3333FF" CssClass="auto-style6" Font-Size="Large" ForeColor="White" Height="67px" OnClick="Button2_Click1" Text="SAVE" Width="178px" />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style5" colspan="2">
-                    <asp:Button ID="Button1" runat="server" BackColor="Red" ForeColor="White" Height="71px" Text="LOGIN" Width="227px" Font-Size="20pt" OnClick="Button1_Click" />
+                    <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
                 </td>
             </tr>
             </table>
