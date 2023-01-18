@@ -13,7 +13,7 @@ namespace GYM_PROJECT
     public partial class WebForm6 : System.Web.UI.Page
     {
         SqlConnection Bridge = new SqlConnection(ConfigurationManager.ConnectionStrings["SALON"].ConnectionString);
-        int Deneme = 0;
+     
         protected void Page_Load(object sender, EventArgs e)
         {
 

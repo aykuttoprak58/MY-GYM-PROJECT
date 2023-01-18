@@ -12,21 +12,18 @@ namespace GYM_PROJECT
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
-        SqlConnection Bridge = new SqlConnection(ConfigurationManager.ConnectionStrings["SALON"].ConnectionString);
+        SqlConnection Bridge = new SqlConnection("Data Source=DELL;Initial Catalog=SALON;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
+            sqlconnectionclass sınıf = new sqlconnectionclass();
+
             if (!IsPostBack)
             {
 
-                String Salon1 = "select * from Salon";
-                SqlCommand Komando = new SqlCommand(Salon1, Bridge);
+                String query = "select * from Salon";
+             
                 DataTable Veriler = new DataTable();
-                SqlDataAdapter Adaptör = new SqlDataAdapter(Komando);
-                Adaptör.Fill(Veriler);
-                Bridge.Open();
-                Komando.ExecuteNonQuery();
-                Bridge.Close();
-
+                sınıf.sqldataconnection(query,Veriler);
                 DropDownList1.DataSource = Veriler;
                 DropDownList1.DataTextField = "SalonName";
                 DropDownList1.DataValueField = "SalonId";
@@ -37,14 +34,8 @@ namespace GYM_PROJECT
             if (!IsPostBack)
             {
                 String C1 = "select * from Course";
-                SqlCommand Komando2 = new SqlCommand(C1, Bridge);
                 DataTable VerilerC1 = new DataTable();
-                SqlDataAdapter Adaptör2 = new SqlDataAdapter(Komando2);
-                Adaptör2.Fill(VerilerC1);
-                Bridge.Open();
-                Komando2.ExecuteNonQuery();
-                Bridge.Close();
-
+                sınıf.sqldataconnection(C1, VerilerC1);
                 DropDownList2.DataSource = VerilerC1;
                 DropDownList2.DataTextField = "CourseName";
                 DropDownList2.DataValueField = "CourseId";
@@ -55,13 +46,8 @@ namespace GYM_PROJECT
             if (!IsPostBack)
             {
                 String C2 = "select * from Tranier";
-                SqlCommand Komando3 = new SqlCommand(C2, Bridge);
                 DataTable VerilerC2 = new DataTable();
-                SqlDataAdapter Adaptör3 = new SqlDataAdapter(Komando3);
-                Adaptör3.Fill(VerilerC2);
-                Bridge.Open();
-                Komando3.ExecuteNonQuery();
-                Bridge.Close();
+                sınıf.sqldataconnection(C2, VerilerC2);
 
                 DropDownList3.DataSource = VerilerC2;
                 DropDownList3.DataTextField = "TranierName";
@@ -73,13 +59,8 @@ namespace GYM_PROJECT
             if (!IsPostBack)
             {
                 String C3 = "select * from Time";
-                SqlCommand Komando4 = new SqlCommand(C3, Bridge);
                 DataTable VerilerC3 = new DataTable();
-                SqlDataAdapter Adaptör4 = new SqlDataAdapter(Komando4);
-                Adaptör4.Fill(VerilerC3);
-                Bridge.Open();
-                Komando4.ExecuteNonQuery();
-                Bridge.Close();
+                sınıf.sqldataconnection(C3, VerilerC3);
 
                 DropDownList4.DataSource = VerilerC3;
                 DropDownList4.DataTextField = "TimeName";
@@ -92,9 +73,17 @@ namespace GYM_PROJECT
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            insert();
+  
+        }
+
+
+        public void insert()
+        {
+
             try
             {
-                 
+
 
 
                 string gender = "";
@@ -109,14 +98,14 @@ namespace GYM_PROJECT
                     gender = "FEMALE";
                 }
 
-                if (DropDownList1.SelectedIndex == 0 || DropDownList2.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0 || DropDownList4.SelectedIndex == 0 )
+                if (DropDownList1.SelectedIndex == 0 || DropDownList2.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0 || DropDownList4.SelectedIndex == 0)
                 {
                     DropDownList1.SelectedIndex = 1;
                     DropDownList2.SelectedIndex = 1;
                     DropDownList3.SelectedIndex = 1;
                     DropDownList4.SelectedIndex = 1;
                 }
-           
+
 
                 string Register = "INSERT INTO Register (Name,Surname,Age,Gender,Height,Weight,Email,Phone,SalonId,CourseId,TranierId,TimeId) VALUES (@Name,@Surname,@Age,@Gender,@Height,@Weight,@Email,@Phone,@SalonId,@CourseId,@TranierId,@TimeId)";
                 SqlCommand Komando2 = new SqlCommand(Register, Bridge);
@@ -139,13 +128,17 @@ namespace GYM_PROJECT
             catch (Exception)
             {
 
-                DropDownList1.SelectedIndex= 0;
-                DropDownList2.SelectedIndex= 0;
+                DropDownList1.SelectedIndex = 0;
+                DropDownList2.SelectedIndex = 0;
                 DropDownList3.SelectedIndex = 0;
                 DropDownList4.SelectedIndex = 0;
 
             }
-  
+
+
+
         }
+
+
     }
 }
