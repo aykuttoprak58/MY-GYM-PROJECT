@@ -12,9 +12,15 @@ namespace GYM_PROJECT
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
-        SqlConnection Bridge = new SqlConnection("Data Source=DELL;Initial Catalog=SALON;Integrated Security=True");
+
+ 
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+
+
             sqlconnectionclass sınıf = new sqlconnectionclass();
 
             if (!IsPostBack)
@@ -80,7 +86,8 @@ namespace GYM_PROJECT
 
         public void insert()
         {
-
+            string baglanti = "Data Source=DELL;Initial Catalog=SALON;Integrated Security=True";
+            SqlConnection Bridge = new SqlConnection(baglanti);
             try
             {
 
