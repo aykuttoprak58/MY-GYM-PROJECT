@@ -1,3 +1,0 @@
-webconfig içersindeki datasource kısmına kendi server name'nizi yazınınız.
-
-salon.sql klasörünün içerisindeki yazıları koyalayıp mssql de yeni bir sorgu açıp çalıştırın gerekli olan bütün tablolar otomatik oluşturulacakdır.
